@@ -17,9 +17,7 @@ public class Point2d extends AbstractPoint {
      * 2D Point Constructor from vector
      * @param vector Vector containing X and Y coordinates
      */
-    public Point2d(Double[] vector) {
-        this(0.0, 0.0);
-    }
+    public Point2d(Double[] vector) { this(vector[0], vector[1]); }
 
     /**
      * @return X coordinate
@@ -38,7 +36,13 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d translate(Double[] translateVector) {
-        return null;
+        Point2d translatedPoint = new Point2d(this.vector);
+        PointOperator.translate(translatedPoint.vector,translateVector);
+        return translatedPoint;
+        //Utiliser new ou (this) est correct?(best facon de faire)??
+        //CODE utilisation de (this) passe test:
+//        PointOperator.translate(this.vector,translateVector);
+//        return this;
     }
 
     /** TODO
@@ -47,7 +51,9 @@ public class Point2d extends AbstractPoint {
      * @return Translated point
      */
     public Point2d translate(Point2d translateVector) {
-        return null;
+        Double[] translatedPoint2D = {translateVector.X(), translateVector.Y()};
+        PointOperator.translate(this.vector, translatedPoint2D);
+        return this;
     }
 
     /** TODO
@@ -57,7 +63,13 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        return null;
+        Point2d rotatedPoint = new Point2d(this.vector);
+        PointOperator.rotate(rotatedPoint.vector,rotationMatrix);
+        return rotatedPoint;
+        //Utiliser new ou (this) est correct?(best facon de faire)??
+        //CODE utilisation de (this) passe test:
+//        PointOperator.rotate(this.vector,rotationMatrix);
+//        return this;
     }
 
     /** TODO
@@ -66,7 +78,12 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        return null;
+        Double[][] rotation = {
+                {Math.cos(angle), -Math.sin(angle)},
+                {Math.sin(angle), Math.cos(angle)}
+        };
+        PointOperator.rotate(this.vector, rotation);
+        return this;
     }
 
     /** TODO
@@ -76,7 +93,12 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d divide(Double divider) {
-        return null;
+        //TEST ne passe pas si on crée un new, MÊME chose pour */+
+//        Point2d dividedPoint = new Point2d(this.vector);
+//        PointOperator.divide(dividedPoint.vector, divider);
+//        return dividedPoint;
+        PointOperator.divide(this.vector, divider);
+        return this;
     }
 
     /** TODO
@@ -86,7 +108,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d multiply(Double multiplier) {
-        return null;
+        PointOperator.multiply(this.vector, multiplier);
+        return this;
     }
 
     /** TODO
@@ -96,7 +119,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d add(Double adder) {
-        return null;
+        PointOperator.add(this.vector, adder);
+        return this;
     }
 
     /** TODO
@@ -104,6 +128,6 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d clone() {
-        return null;
+        return  new Point2d(this.vector.clone());
     }
 }
