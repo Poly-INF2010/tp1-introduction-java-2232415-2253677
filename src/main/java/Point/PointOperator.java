@@ -11,7 +11,7 @@ public final class PointOperator {
      * @param translateVector Translation to apply
      */
     public static void translate(Double[] vector, Double[] translateVector) {
-        for(int i = 0; i< vector.length; i++) {
+        for(int i = 0; i < vector.length; i++) {
             vector[i] = vector[i] + translateVector[i];
         }
     }
@@ -39,7 +39,7 @@ public final class PointOperator {
      * @param divider Scalar by which to divide
      */
     public static void divide(Double[] vector, Double divider) {
-        for(int i = 0; i< vector.length; i++) {
+        for(int i = 0; i < vector.length; i++){
             vector[i] /= divider;
         }
     }
@@ -50,7 +50,7 @@ public final class PointOperator {
      * @param multiplier Scalar by which to multiply
      */
     public static void multiply(Double[] vector, Double multiplier) {
-        for(int i = 0; i< vector.length; i++) {
+        for(int i = 0; i < vector.length; i++){
             vector[i] *= multiplier;
         }
     }
@@ -61,7 +61,7 @@ public final class PointOperator {
      * @param adder Scalar to add to vector
      */
     public static void add(Double[] vector, Double adder) {
-        for(int i = 0; i< vector.length; i++) {
+        for(int i = 0; i < vector.length; i++) {
             vector[i] += adder;
         }
     }
