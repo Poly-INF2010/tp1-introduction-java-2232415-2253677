@@ -36,13 +36,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d translate(Double[] translateVector) {
-        Point2d translatedPoint = new Point2d(this.vector);
-        PointOperator.translate(translatedPoint.vector,translateVector);
-        return translatedPoint;
-        //Utiliser new ou (this) est correct?(best facon de faire)??
-        //CODE utilisation de (this) passe test:
-//        PointOperator.translate(this.vector,translateVector);
-//        return this;
+        PointOperator.translate(this.vector,translateVector);
+        return this;
     }
 
     /** TODO
@@ -63,13 +58,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        Point2d rotatedPoint = new Point2d(this.vector);
-        PointOperator.rotate(rotatedPoint.vector,rotationMatrix);
-        return rotatedPoint;
-        //Utiliser new ou (this) est correct?(best facon de faire)??
-        //CODE utilisation de (this) passe test:
-//        PointOperator.rotate(this.vector,rotationMatrix);
-//        return this;
+        PointOperator.rotate(this.vector,rotationMatrix);
+        return this;
     }
 
     /** TODO
@@ -93,10 +83,6 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d divide(Double divider) {
-        //TEST ne passe pas si on crée un new, MÊME chose pour */+
-//        Point2d dividedPoint = new Point2d(this.vector);
-//        PointOperator.divide(dividedPoint.vector, divider);
-//        return dividedPoint;
         PointOperator.divide(this.vector, divider);
         return this;
     }
