@@ -36,9 +36,9 @@ public class BaseShape extends Transform implements Cloneable {
      */
     public BaseShape add(Point2d coord) {
 
-         this.add(coord.clone());
 
-        return new BaseShape(updatedBS);
+
+        return this;
     }
 
     /** TODO
