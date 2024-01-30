@@ -38,7 +38,8 @@ public class BaseShape extends Transform implements Cloneable {
 
          this.add(coord.clone());
 
-        return new BaseShape(updatedBS);
+//        return new BaseShape(updatedBS);
+        return null;
     }
 
     /** TODO
