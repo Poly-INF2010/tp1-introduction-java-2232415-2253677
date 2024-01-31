@@ -6,6 +6,8 @@ import Point.Point2d;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.lang.Double.NEGATIVE_INFINITY;
+
 public class BaseShape extends Transform implements Cloneable {
     private final Collection<Point2d> coords;
 
@@ -135,7 +137,14 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum X coordinate of the shape
      */
     public Double getMaxX() {
-        return null;
+        Double maxX = Double.NEGATIVE_INFINITY;
+        for (Point2d point : this.coords){
+            Double xValue = point.X();
+            if (xValue>maxX){
+                maxX = xValue;
+            }
+        }
+        return maxX;
     }
 
     /** TODO
