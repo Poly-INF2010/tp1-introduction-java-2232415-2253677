@@ -6,6 +6,8 @@ import Point.Point2d;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.lang.Double.NEGATIVE_INFINITY;
+
 public class BaseShape extends Transform implements Cloneable {
     private final Collection<Point2d> coords;
 
@@ -26,8 +28,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @param coords The collection of 2D points
      */
     public BaseShape(Collection<Point2d> coords) {
-        this.coords = cloneCoords(coords);
-//        this();
+        this.coords = new ArrayList<>(coords);
     }
 
     /** TODO
@@ -36,7 +37,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape add(Point2d coord) {
-
+        this.coords.add(coord.clone());
         return this;
     }
 
@@ -46,7 +47,11 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape add(BaseShape shape) {
-        return null;
+        for (Point2d point : shape.getCoords()){
+            Point2d point2 = point.clone();
+            this.coords.add(point2);
+        }
+        return this;
     }
 
     /** TODO
@@ -55,7 +60,11 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape addAll(Collection<Point2d> coords) {
-        return null;
+        for (Point2d point : coords) {
+            Point2d point2 = point.clone();
+            this.coords.add(point2);
+        }
+        return this;
     }
 
     /** TODO
@@ -64,7 +73,8 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape remove(Point2d coord) {
-        return null;
+        this.coords.remove(coord);
+        return this;
     }
 
     /** TODO
@@ -73,9 +83,10 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape remove(BaseShape shape) {
-//        this.coords.remove(shape);
-//        return this;
-        return null;
+        for (Point2d point : shape.getCoords()){
+            this.coords.remove(point);
+        }
+        return this;
     }
 
     /** TODO
@@ -84,16 +95,23 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape removeAll(Collection<Point2d> coords) {
-        this.coords.remove(coords);
+        for (Point2d point : coords){
+            this.coords.remove(point);
+        }
         return this;
     }
+
 
     /** TODO
      *  Replace all the coords in a shape with new ones
      * @param newCoords new coords to replace the old one
      * @return Updated BaseShape
      * */
-    public BaseShape replaceAll(Collection<Point2d> newCoords) { return null; }
+    public BaseShape replaceAll(Collection<Point2d> newCoords) {
+            this.coords.clear(); //Peut-être préférable d'utiliser removeAll?
+            this.coords.addAll(newCoords);
+        return this;
+    }
 
     /** TODO
      * Return a shallow copy of the coordinates of the shape
@@ -108,14 +126,25 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Deep copy of all coordinates contained by this BaseShape
      */
     public Collection<Point2d> cloneCoords() {
+        for (Point2d point : coords){
+
+        }
         return null;
+
     }
 
     /** TODO
      * @return Maximum X coordinate of the shape
      */
     public Double getMaxX() {
-        return null;
+        Double maxX = Double.NEGATIVE_INFINITY;
+        for (Point2d point : this.coords){
+            Double xValue = point.X();
+            if (xValue>maxX){
+                maxX = xValue;
+            }
+        }
+        return maxX;
     }
 
     /** TODO
@@ -157,6 +186,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Deep copy of the current shape
      */
     public BaseShape clone() {
+
         return null;
     }
 }
