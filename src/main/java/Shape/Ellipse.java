@@ -13,7 +13,6 @@ public class Ellipse extends BaseShape {
     public Ellipse(Double widthDiameter, Double heightDiameter) {
         double halfWidth = widthDiameter / 2.0;
         double halfHeight = heightDiameter / 2.0;
-//        getCoords().clear();
 
         for (double angle = 0; angle < 360; angle += 5) {
             double x = halfWidth * Math.cos(Math.toRadians(angle));

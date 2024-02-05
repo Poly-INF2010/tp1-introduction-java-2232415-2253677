@@ -80,8 +80,6 @@ public class Rectangle extends BaseShape {
         }
     }
 
-
-
     /** TODO
      * @return Deep copy of the rectangle
      */
