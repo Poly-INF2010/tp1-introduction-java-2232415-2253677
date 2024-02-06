@@ -10,7 +10,10 @@ public final class LetterFactory {
     final static Double halfMaxWidth = maxWidth / 2;
     final static Double stripeThickness = maxHeight / 8;
     final static Double halfStripeThickness = stripeThickness / 2;
-
+    final static Double adjustPlacement5 = 5.0;
+    final static Double adjustPlacement3 = 3.0;
+    final static Double adjustPlacement20 = 20.0;
+    final static Double getAdjustPlacement10 = 10.0;
 
 
     /** TODO
@@ -42,19 +45,19 @@ public final class LetterFactory {
         circle1.translate(circle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness));
 
         Circle insideCircle1 = new Circle(halfMaxHeight);
-        insideCircle1.translate(insideCircle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness - halfStripeThickness + 5));
+        insideCircle1.translate(insideCircle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness-halfStripeThickness + adjustPlacement5));
         circle1.add(insideCircle1);
 
         Circle circle2 = new Circle(halfMaxHeight);
-        circle2.translate(circle2.getCoords(), new Point2d(0.0, -halfMaxHeight - stripeThickness * 3 ));
+        circle2.translate(circle2.getCoords(), new Point2d(0.0, -halfMaxHeight - stripeThickness * adjustPlacement3 ));
         circle1.add(circle2);
 
         Circle insideCircle2 = new Circle(halfMaxHeight);
-        insideCircle2.translate(insideCircle2.getCoords(), new Point2d(0.0, -halfMaxHeight - stripeThickness * 3 - halfStripeThickness + 5));
+        insideCircle2.translate(insideCircle2.getCoords(), new Point2d(0.0, -halfMaxHeight - stripeThickness * adjustPlacement3 - halfStripeThickness + adjustPlacement5));
         circle1.add(insideCircle2);
 
-        Rectangle rectangle = new Rectangle(stripeThickness + 5, maxHeight);
-        rectangle.translate(rectangle.getCoords(),new Point2d(-halfMaxWidth - halfStripeThickness, -halfMaxHeight - 20));
+        Rectangle rectangle = new Rectangle(stripeThickness + adjustPlacement5, maxHeight);
+        rectangle.translate(rectangle.getCoords(),new Point2d(-halfMaxWidth -halfStripeThickness, -halfMaxHeight - adjustPlacement20));
         circle1.add(rectangle);
 
         return circle1;
@@ -77,16 +80,16 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        Rectangle topRectangle = new Rectangle(maxWidth + 10, halfStripeThickness + 5);
+        Rectangle topRectangle = new Rectangle(maxWidth + getAdjustPlacement10, halfStripeThickness + adjustPlacement5);
         topRectangle.translate(topRectangle.getCoords(),new Point2d(0.0, -halfMaxHeight + stripeThickness));
 
-        Rectangle bottomRectangle = new Rectangle(maxWidth + 10 ,halfStripeThickness + 5);
+        Rectangle bottomRectangle = new Rectangle(maxWidth + getAdjustPlacement10,halfStripeThickness + adjustPlacement5);
         bottomRectangle.translate(bottomRectangle.getCoords(), new Point2d(0.0, halfMaxHeight));
 
-        Rectangle sideRectangle = new Rectangle(halfStripeThickness + 5, maxHeight - 20);
+        Rectangle sideRectangle = new Rectangle(halfStripeThickness + adjustPlacement5, maxHeight - adjustPlacement20);
         sideRectangle.translate(sideRectangle.getCoords(),new Point2d(-halfMaxWidth, 0.0));
 
-        return new Rectangle(maxWidth + 10, halfStripeThickness + 5)
+        return new Rectangle(maxWidth + 10, halfStripeThickness + adjustPlacement5)
                 .add(topRectangle)
                 .add(bottomRectangle)
                 .add(sideRectangle);
@@ -114,7 +117,7 @@ public final class LetterFactory {
      */
     public static BaseShape create_N() {
         Rectangle rightBar = new Rectangle(halfStripeThickness, maxHeight);
-        rightBar.translate(rightBar.getCoords(),new Point2d( maxWidth - 5, 0.0));
+        rightBar.translate(rightBar.getCoords(),new Point2d( maxWidth - adjustPlacement5, 0.0));
 
         Rectangle middleBar = new Rectangle(halfStripeThickness, maxHeight);
         middleBar.rotate(middleBar.getCoords(),Math.toRadians(340));
@@ -130,7 +133,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        Ellipse insideEllipse = new Ellipse(maxWidth - halfStripeThickness,maxHeight - halfStripeThickness);
+        Ellipse insideEllipse = new Ellipse(maxWidth-halfStripeThickness,maxHeight-halfStripeThickness);
         return new Ellipse(maxWidth, maxHeight)
                 .add(insideEllipse);
     }
