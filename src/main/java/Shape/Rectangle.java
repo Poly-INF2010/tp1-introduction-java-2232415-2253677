@@ -64,15 +64,12 @@ public class Rectangle extends BaseShape {
             maxY = Math.max(maxY, y);
         }
 
-        // Calculate the width and height of the rectangle
         double width = maxX - minX;
         double height = maxY - minY;
 
-        // Calculate the center of the rectangle
         double centerX = minX + width / 2.0;
         double centerY = minY + height / 2.0;
 
-        // Adjust the points to center the rectangle at (0, 0)
         for (Point2d point : coords) {
             double adjustedX = point.X() - centerX;
             double adjustedY = point.Y() - centerY;

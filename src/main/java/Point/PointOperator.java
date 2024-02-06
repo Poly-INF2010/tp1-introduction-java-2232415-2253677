@@ -26,8 +26,9 @@ public final class PointOperator {
        Double[] rotatedVector = new Double[vector.length];
         for(int i = 0; i < rotationMatrix.length; i++) {
             rotatedVector[i] = 0.0;
-            for(int j = 0; j < rotationMatrix[0].length ; j++){
-                rotatedVector[i] += vector[j] * rotationMatrix[i][j];
+            int j = 0;
+            for(Double element : vector){
+                rotatedVector[i] += element * rotationMatrix[i][j++];
             }
         }
         System.arraycopy(rotatedVector,0,vector,0,vector.length);
@@ -39,8 +40,8 @@ public final class PointOperator {
      * @param divider Scalar by which to divide
      */
     public static void divide(Double[] vector, Double divider) {
-        for(int i = 0; i < vector.length; i++){
-            vector[i] /= divider;
+        for (Double value : vector) {
+            value /= divider;
         }
     }
 
@@ -50,8 +51,8 @@ public final class PointOperator {
      * @param multiplier Scalar by which to multiply
      */
     public static void multiply(Double[] vector, Double multiplier) {
-        for(int i = 0; i < vector.length; i++){
-            vector[i] *= multiplier;
+        for (Double value : vector) {
+            value *= multiplier;
         }
     }
 
