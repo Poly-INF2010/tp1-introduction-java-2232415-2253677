@@ -26,10 +26,7 @@ public class Ellipse extends BaseShape {
      * Create a filled Ellipse that is centered on (0,0)
      * @param dimensions 2D point containing the width and height of the Ellipse
      */
-    public Ellipse(Point2d dimensions) {
-
-        this(dimensions.X(), dimensions.Y());
-    }
+    public Ellipse(Point2d dimensions) { this(dimensions.X(), dimensions.Y()); }
 
     /**
      * Create an Ellipse from a given collection of 2D points
