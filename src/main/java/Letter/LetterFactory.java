@@ -45,7 +45,7 @@ public final class LetterFactory {
         circle1.translate(circle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness));
 
         Circle insideCircle1 = new Circle(halfMaxHeight);
-        insideCircle1.translate(insideCircle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness-halfStripeThickness + adjustPlacement5));
+        insideCircle1.translate(insideCircle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness - halfStripeThickness + adjustPlacement5));
         circle1.add(insideCircle1);
 
         Circle circle2 = new Circle(halfMaxHeight);
@@ -89,7 +89,7 @@ public final class LetterFactory {
         Rectangle sideRectangle = new Rectangle(halfStripeThickness + adjustPlacement5, maxHeight - adjustPlacement20);
         sideRectangle.translate(sideRectangle.getCoords(),new Point2d(-halfMaxWidth, 0.0));
 
-        return new Rectangle(maxWidth + 10, halfStripeThickness + adjustPlacement5)
+        return new Rectangle(maxWidth + getAdjustPlacement10, halfStripeThickness + adjustPlacement5)
                 .add(topRectangle)
                 .add(bottomRectangle)
                 .add(sideRectangle);
