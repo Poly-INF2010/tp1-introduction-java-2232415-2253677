@@ -12,6 +12,7 @@ public final class LetterFactory {
     final static Double halfStripeThickness = stripeThickness / 2;
 
 
+
     /** TODO
      * Create the letter A graphically
      * @return BaseShape containing the letter A
@@ -41,7 +42,7 @@ public final class LetterFactory {
         circle1.translate(circle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness));
 
         Circle insideCircle1 = new Circle(halfMaxHeight);
-        insideCircle1.translate(insideCircle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness-halfStripeThickness + 5));
+        insideCircle1.translate(insideCircle1.getCoords(), new Point2d(0.0, -halfMaxHeight + stripeThickness - halfStripeThickness + 5));
         circle1.add(insideCircle1);
 
         Circle circle2 = new Circle(halfMaxHeight);
@@ -53,7 +54,7 @@ public final class LetterFactory {
         circle1.add(insideCircle2);
 
         Rectangle rectangle = new Rectangle(stripeThickness + 5, maxHeight);
-        rectangle.translate(rectangle.getCoords(),new Point2d(-halfMaxWidth -halfStripeThickness, -halfMaxHeight - 20));
+        rectangle.translate(rectangle.getCoords(),new Point2d(-halfMaxWidth - halfStripeThickness, -halfMaxHeight - 20));
         circle1.add(rectangle);
 
         return circle1;
@@ -129,7 +130,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        Ellipse insideEllipse = new Ellipse(maxWidth-halfStripeThickness,maxHeight-halfStripeThickness);
+        Ellipse insideEllipse = new Ellipse(maxWidth - halfStripeThickness,maxHeight - halfStripeThickness);
         return new Ellipse(maxWidth, maxHeight)
                 .add(insideEllipse);
     }
