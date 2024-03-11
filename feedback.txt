@@ -1,0 +1,6 @@
+Points	5/5
+Formes	4/5
+Lettres	5/5
+Qualité de code et Design	5/5
+Total	19/20
+les methodes comme baseshape add ( baseshape) devraient appeler addall ( duplication de code)
